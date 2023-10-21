@@ -32,7 +32,10 @@ class RecetaDetalleActivity : AppCompatActivity() {
         nameDA.text = receta?.nombre
 
         fotoDA = findViewById(R.id.imagenRecetaDA)
-        Glide.with(this).load(receta?.fotografia).into(fotoDA)
+        Glide.with(this)
+            .load(receta?.fotografia)
+            .centerCrop()
+            .into(fotoDA)
 
         countryDA = findViewById(R.id.paisRecetaDA)
         countryDA.text = receta?.pais.toString()
@@ -70,12 +73,12 @@ class RecetaDetalleActivity : AppCompatActivity() {
         tiempo = findViewById(R.id.tiempoRecetaDA)
         tiempo.text = "Tiempo Preparación: " + receta?.tiempo.toString() + " \uD83D\uDD57"
 
-        btnVolver = findViewById(R.id.botonVolverDA)
+        /*btnVolver = findViewById(R.id.botonVolverDA)
         btnVolver.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
-        }
+        }*/
 
         // ELEMENTOS DE LLENADO DE LAS RECETAS
 

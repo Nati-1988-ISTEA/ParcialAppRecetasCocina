@@ -66,7 +66,10 @@ class Adapter(val context: Context): ListAdapter <Recetas, Adapter.ViewHolder>(D
             // TIEMPO RECETA
             tiempo.text = "Tiempo Preparación: " + receta.tiempo.toString() + " \uD83D\uDD57"
 
-            Glide.with(context).load(receta.fotografia).into(foto)
+            Glide.with(context)
+                .load(receta.fotografia)
+                .centerCrop()
+                .into(foto)
 
             view.setOnClickListener{
                 onItemClickListener(receta) // que se complete con si mismo
